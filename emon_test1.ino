@@ -1,21 +1,11 @@
 /*
-  Web client
-
-  This sketch connects to a website (http://www.google.com)
-  using an Arduino Wiznet Ethernet shield.
-
-  Circuit:
-   Ethernet shield attached to pins 10, 11, 12, 13
-
-  created 18 Dec 2009
-  by David A. Mellis
-  modified 9 Apr 2012
-  by Tom Igoe, based on work by Adrian McEwen
-
+ This is a test to check connection and functionalities to EmonCms.org
+ using Industruino D21G with Ethernet card.
+ At the moment, it fails to connect to emoncms.org. 
 */
 
 #include <SPI.h>
-#include <Ethernet2.h>
+#include <Ethernet2.h>  // this is the fork at https://github.com/Industruino/Ethernet2 
 #define EMON_TOKEN "e5ffc481bc5724c68a96307ca47c6260"
 
 // Enter a MAC address for your controller below.
@@ -59,7 +49,7 @@ void setup() {
   SerialUSB.print("connecting... ");
   SerialUSB.println(String(server));
   // if you get a connection, report back via serial:
-  if (emon.connect(server, 80)) {
+  if (emon.connect(server, 80)) {  // here the procedure get stuck for several seconds and then returns "0" - i.e. connection failed
     SerialUSB.println("connected");
 
 
